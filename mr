@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# if $2 is unset, substitute 1
+# if $1 is unset, substitute ""
+#if [ -z ${1:-""} ]
+#fi
+if [ -z ${2} ]; then
+ x=1 
+else
+ x=$2
+fi
+  
+if [ -z ${1} ]; then
+  cat $(ls -t | head -$x | tail -1)
+else
+   cat $(ls -t | grep $1 | head -$x | tail -1)
+fi
