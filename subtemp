@@ -4,6 +4,7 @@
 
 touch submit
 cat > submit << EOL
+#!/bin/bash
 #$ -M patr1ckm.crc@gmail.com	 # Email address for job notification
 #$ -m a		 # Send mail when job begins, ends and aborts
 #$ -pe smp $2           # environment and legal core size
