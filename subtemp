@@ -1,18 +1,21 @@
 #!/bin/bash
 
-# $1 is -N, $2 is core size
+# $1 is the R script to run
 
 touch submit
 cat > submit << EOL
 #!/bin/bash
 #$ -M patr1ckm.crc@gmail.com	 # Email address for job notification
 #$ -m a		 # Send mail when job begins, ends and aborts
-#$ -pe smp $2           # environment and legal core size
+#$ -pe smp 1           # environment and legal core size
 #$ -q *@@daccss		 # Specify queue
-#$ -N $1	         # Specify job name
+#$ -N patr1ckm	         # Specify job name
 #$ -t 1         # number of reps
 #$ -o SGE_Output
+Rscript $1
 EOL
+
+mkdir SGE_Output
 
 
 
